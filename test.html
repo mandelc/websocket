@@ -1,0 +1,21 @@
+<body>Hello World</body>
+<script>
+        let ws = new WebSocket("ws://localhost:12345/echo");
+
+        ws.onopen = () => {
+            console.log("Connected");
+        };
+
+        ws.onmessage = resp => {
+            console.log("Received: ", resp);
+            console.log(resp.data);
+        };
+
+        ws.onclose = () => {
+            console.log("Connection closed");
+        }
+
+        ws.onerror = resp => {
+            console.log("Error: ", resp);
+        }
+</script>
